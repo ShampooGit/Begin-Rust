@@ -30,6 +30,8 @@ fn main() {
     println!("");
     println!("for info about tuples check out tup_types()");
     tup_type();
+    println!("for info about arrays check out array_type()");
+    array_type();
 
 }
 
@@ -129,6 +131,7 @@ fn tup_type() {
         a tuple can store mutple data types in a list,
         tuples cannot not grow or shrink in size
     */
+    let _tup_p = (500, 6.4, 'h', true);
     let _tup_p: (i32, f64, char, bool) = (500, 6.4, 'h', true);
     /*
         there are mutiple ways of retrieving the data 
@@ -147,7 +150,7 @@ fn tup_type() {
     let _e = _tup_i.0;
     let _f = _tup_i.1;
     let _g = _tup_i.2;
-    let _j =_tup_i.3;
+    let _j = _tup_i.3;
     // here we create seprate vars for each value
     // and we use 0..4 to grab the value from that var
 
@@ -162,6 +165,23 @@ fn tup_type() {
 }
 
 fn array_type() {
+    /*
+        arrays can only hold one type of data and like the tuple
+        they have a fixed length, data stored in an array is
+        on the stack so when you know the amount of elements
+        will not need to change you should use an array think of
+        the months there are 12 and will not change.
+    */
+    let _a = [1, 2, 3, 4, 5];
+    let _a: [i16; 5] = [1, 2, 3, 4, 5];
 
+    // you can also make an array and add a value intead of a type 
+    let _ac = [3; 5];
+    // now the array is the same as let _a = [3, 3, 3, 3, 3];
+
+    // acesing the value of an array
+    // can be done via indexing like with tuples
+    let _first = _a[0];
+    let _second = _a[1];
 }
 
