@@ -93,7 +93,7 @@ fn main() {
 
     its the same as mutablity i need to tell
     rust yo i want this to return a value
-    the last line that is od the specified type
+    the last line that is of the specified type
     with no ; will be returnd
 
 fn five() -> i16 {
