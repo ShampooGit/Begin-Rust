@@ -123,9 +123,142 @@ fn main() {
 
 
 //
-// Loops 
+//  Loops 
+//
+//  there are 3 loop types
+//  loop, while & for
+//
+/*
+fn main() {
+    loop {
+        println!("again!");
+        break;
+    }
+} 
+*/
+
+
+/*
+
+//
+//  we use a counter and an if to break the loop
+//  then we pass the final counter number as result
 //
 
 fn main() {
+    let mut counter = 0;
 
-} 
+    let _result = loop {
+        
+        counter += 1;
+        println!("{counter}");
+        if counter == 10 {
+            break counter *2
+        }
+    };
+    println!("The result : {_result}");
+}
+*/
+
+/*
+
+//
+//  Disambiguating with loop labels
+//
+//  i can add a label to a loop and then break a loop 
+//  inside another loop using the label
+// 
+
+fn main() {
+    let mut _count = 0;
+    '_counting_up: loop {
+        println!("count = {_count}");
+        let mut _remaining = 10;
+
+        loop {
+            println!("remaining = {_remaining}");
+            if _remaining == 9 {
+                break;
+            }
+            if _count == 2 {
+                break '_counting_up;
+            } 
+            _remaining -= 1;
+        };
+        _count +=1;
+    };
+    println!("End count = {_count}");
+}
+*/
+
+
+//
+//  while loops
+//
+//  i can not belive they made me write the while loop
+//  using if's holy fuck wtf i feel nasty after those
+//  so thank god we go onto those now
+//
+/*
+fn main() {
+    let mut _number = 3;
+
+    while _number != 0 {
+        println!("T-,{_number}");
+        _number -= 1;
+    }
+    println!("Lift-off !");
+}
+*/
+
+//
+//  array looping with while
+//
+/*
+fn main() {
+    let _a = [10, 20, 30, 40, 50];
+    let mut _index = 0;
+
+    while _index <5 {
+        println!("The value is : {}", _a[_index]);
+        
+        _index += 1;
+    }
+}
+*/
+
+
+//
+//  for loop
+//
+//
+//  this code snippet is saver then the one before since 
+//  we directly take the length of the array
+//  and this can be more preformant 
+//
+//  i can also just use a refrence to the array.
+//
+/*
+fn main() {
+    let _a = [10, 20, 30, 40, 50, 60];
+
+    for _e in _a { //&_a
+        println!("the value is :{_e}")
+    }
+}
+*/
+
+//
+//  range in for loops
+//
+//  in a range we first use () <- inside we add the range
+//  the range (1..4) will do tree loops cuz 4 is not included
+//  so if the range was (1..7) then seven would not be included
+//
+
+fn main() {
+    for _n in (1..4).rev() { // .rev is to reverse the range
+        println!("{_n}");
+    }
+    println!("LIFTOFF!!!");
+}
