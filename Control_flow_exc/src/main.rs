@@ -52,6 +52,20 @@ Mental Recipe: > "Create a variable (let x =) -> Check a condition
 
 ================================================================================
 
+For Loop --- Iterator
+
+Keyword: for
+
+The Pattern: for item in collection { ... }
+
+The Range: a..b (exclusive, stops before b) or a..=b (inclusive, includes b).
+
+The Body: {} curly brackets. The code runs once for every item in the collection or range.
+
+Mental Recipe: -> Take a container (range or list) -> Pick up the first item -> Run the code
+using that item { ... } -> Pick up the next item and repeat until the container is empty.
+
+================================================================================
 
 */
 //
@@ -74,15 +88,27 @@ fn main() {
 */
 
 
-
-
-
+//
+//  Loop
+//
+/*
+fn main() {
+    let mut counter = 0;
+    let result = loop {
+        counter += 1; // incerement + and assign = 
+        if counter == 10 {
+            break counter
+        }
+    };
+    println!("result = {result}");
+}
+*/
 
 
 //
 //  Temp
 //
-
+/* 
 fn main() {
     let _temp = 25;
 
@@ -90,16 +116,18 @@ fn main() {
         println!("Hot its {_temp}");
     } else if _temp <= 10 {
         println!("Cold its {_temp}");
-    }else {
+    } else {
         println!("Nice its {_temp}");
     }
 }
-
-
-/*
-If it is above 30, print "Hot".
-
-If it is between 10 and 30, print "Nice".
-
-If it is below 10, print "Cold".
 */
+
+
+//Convert temperatures between Fahrenheit and Celsius.
+// celsius to fahrenheit
+
+fn main() {
+    let cel = 100.5;
+    let far = (cel*1.8) + 32.0;
+    println!("{far}");
+}
