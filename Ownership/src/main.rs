@@ -43,9 +43,43 @@ fn main() {
 //
 //  The string Type
 //
+/* 
 fn main() {
     //let s = String::from("String");
     let mut s = String::from("hello");
     s.push_str(", world!");     // this appends a literal to a String
     println!("{s}");        // i think that push is possible cuz a string is a array and this should be an vector
+}
+*/
+
+//
+//  Memory and Allocation
+//
+/*
+    The memory must be requested from the memory allocater at runtime   --- we do this in ---   String::from
+    We need a wat of returning this memory to allocator when we're done with String   --- but how --- vvv
+
+    in rust there is no garbage collector (0.0)
+    in rust the memory gets freed after the scope ends
+
+*/
+
+//  Variables and Data Interacting with Move
+/*  int ver
+fn main() {
+    let x = 5;
+    let y = x;
+    // both of theese are = to 5 
+    // both are ints wich are simple values with a known fixed size, 
+    // so they are pushed on the stack
+}
+*/
+
+//  String ver
+fn main() {
+    let s1 = String::from ("Hello");
+    let s2 = s1;
+    // this does not simple copy the data like with the int
+    // this is beacuse a string is an array and its a pointer to the data thats being stored on the heap
+    // so in the end we just coppy the memory adress instead of the data itself
 }
