@@ -162,6 +162,45 @@ fn main() {
 //  Dangling Refrences
 //
 
+// rust garunetees that there will not be any
+// dangking refrences
+/*
 fn main() {
-    
+    let ref_2_nothing = dangle();
 }
+
+fn dangle() -> &String { // returns a refrnce to a String
+    let s = String::from("Hello"); // s is a new String
+    &s // we return s as a refrence but s
+    // will go out of scope so we are returning 
+    // a dangling refrence cuz the memory goes away
+}
+// the error talkes about lifetimes it will be coverd in 
+// chapter 10 of the book
+*/
+
+// but how do we fix the issue from the dangling refrence
+// simple we just return s instead of a refrence to s
+
+fn main() {
+    let ref_2_nothing = dangle();
+    println!("{ref_2_nothing}");
+}
+
+fn dangle() -> String {
+    let s = String::from("Hello");
+    s
+}
+// this works cuz the ownership has been moved to
+// ref_2_nothing
+
+
+
+//
+//  The Rules of References
+//
+
+// at any given time, you can have either one mutable
+// refrence or any number of immutable refrences
+
+// Refrences must always be valid
