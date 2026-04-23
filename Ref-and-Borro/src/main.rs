@@ -181,7 +181,7 @@ fn dangle() -> &String { // returns a refrnce to a String
 
 // but how do we fix the issue from the dangling refrence
 // simple we just return s instead of a refrence to s
-
+/*
 fn main() {
     let ref_2_nothing = dangle();
     println!("{ref_2_nothing}");
@@ -193,7 +193,7 @@ fn dangle() -> String {
 }
 // this works cuz the ownership has been moved to
 // ref_2_nothing
-
+*/
 
 
 //
@@ -204,3 +204,91 @@ fn dangle() -> String {
 // refrence or any number of immutable refrences
 
 // Refrences must always be valid
+
+
+
+//
+//  The Slice type
+//
+
+/*
+fn main() {
+    let mut cheese = String::from("Hello world");
+    let number = first_word(&cheese);
+    cheese.clear(); // clear() makes the string empty so it will be ""
+    println!("{number}");
+}
+
+fn first_word(s: &String) -> usize {
+    let bytes = s.as_bytes(); // it said we need this but i dont get it...
+
+    for (i, &item) in bytes.iter().enumerate() {// and i also odnt understand the iter and enumarte
+        if item == b' ' { // why ios there a b and then a space?
+            return i;
+        }
+    }
+    s.len()
+}
+// ah yes i barely understoonf anything here but i sort of get it
+// now i could worry here and stop and figure thos eout but nahh
+// thats a problem for future me :>
+// okay it explained it a bit i think it just sperate each carcahter
+// into a seprate char and that way we can just iterate trough each char
+// look for a yt video explaining slices cuz this is not going anywhere
+*/
+
+//  String slices
+/*
+fn main() {
+    let s = String::from("Hello, world!");
+
+    let hello = &s[..4]; // this is a slice
+    let world = &s[7..12]; // this is a slice
+
+    println!("{hello}, {world}");
+}
+// so with a slice we can take just a part of the array this case a string
+// and asign it to a let 
+*/
+/*
+fn main() {
+    let s = String::from("Hello");
+
+    // theese are the same
+    let slice = &s[0..2];
+    println!("{slice}");
+    let slice = &s[..2];
+    println!("{slice}");
+
+    // we can also use a var as a range number
+    let len = s.len();
+    let slice = &s[3..len];
+    println!("{slice}");
+    let slice = &s[3..];
+    println!("{slice}");
+
+    // we can also frop both number and just get the entire string
+    let slice = &s[..];
+    println!("{slice}");
+
+}
+*/
+
+
+
+fn main() {
+    let cheese = String::from("Hello world");
+    let slice = first_word(&cheese);
+    println!("{slice}");
+}
+
+fn first_word(s: &String) -> &str {
+    let bytes = s.as_bytes();
+
+    for (i, &item) in bytes.iter().enumerate() {
+        if item == b' ' {
+            return &s[0..i];
+        }
+    }
+    &s[..]
+}
