@@ -273,12 +273,11 @@ fn main() {
 
 }
 */
-
-
-
+/*
 fn main() {
     let cheese = String::from("Hello world");
     let slice = first_word(&cheese);
+    //s.clear(); // clear is a mutable refrence and thats not possible here
     println!("{slice}");
 }
 
@@ -291,4 +290,80 @@ fn first_word(s: &String) -> &str {
         }
     }
     &s[..]
+}
+*/
+
+
+
+//
+//  String Literals as slices
+//
+/*
+fn main() {
+    let s = "Hello, world!"; // s is a &str
+    // &str points to its specific point of the binary,
+    // this is why string literals (&str) are immutable refrence
+}
+*/
+
+
+
+//
+//  String Slices as Parameters
+//
+/* 
+fn main() {
+    let my_string = String::from("Hello, world!");
+
+    let word = first_word(&my_string[0..6]);
+    let word = first_word(&my_string[..]);
+    // now this is cool with the &str we can now just take slices
+    let word = first_word(&my_string);
+
+    let my_string_literal = "Hello, world";
+
+    let word = first_word(&my_string_literal[0..6]);
+    let word = first_word(&my_string_literal[..]);
+
+    // since Strings *are* string slices already, (array)
+    // this also works ovo
+    let word = first_word(my_string_literal);
+}
+*/
+/*
+// we can now imporve the first_word function siganutre
+// from
+fn first_word(s: &String) -> &str {
+        
+}
+*/
+// to
+/*
+fn first_word(s: &str) -> &str {
+    let bytes = s.as_bytes();
+
+    for (i, &item) in bytes.iter().enumerate() {
+        if item == b' ' {
+            return &s[0..i];
+        }
+    }
+    &s[..]
+}
+*/
+
+
+//
+//  other slices
+//
+
+
+// so this is the same but with diffrent types of arrays so not only strings
+fn main() {
+    let a =  [1, 2, 3, 4, 5];
+
+    let slice = &a[1..3];
+
+    assert_eq!(slice, &[2, 3]);
+    // in chapter 8 we will dive deeper into theese collections
+    // and thier use cases also vectors will be discussed
 }
