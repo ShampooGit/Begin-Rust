@@ -78,13 +78,15 @@ fn main() {
 //  Build structs
 //
 
+/*
 struct User {
     username: String,
     email: String,
     sign_in_count: u32,
     active: bool,
 }
-
+*/
+/*
 fn build_user(email: String, username: String) -> User {
     User {
         // here we can do email: email, to get the value we give in main
@@ -95,7 +97,8 @@ fn build_user(email: String, username: String) -> User {
     }
 
 }
-
+*/
+/*
 fn main() {
     let user1 = build_user( 
         String::from("carl16@carol.com"),
@@ -103,9 +106,101 @@ fn main() {
     );
     //crazy stuff going on here we can fill in data with a fn call
 }
-
+*/
 
 
 //
 //  Field Init Shorthand
 //
+
+// we can use this  so we dont have to type field name twice
+// this works cuz the siganture parameter names are the same 
+
+// before
+/*
+fn build_user(email: String, username: String) -> User {
+    User {
+        email: email,
+        username: username,
+        active: true,
+        sign_in_count: 1,
+    }
+}
+*/
+//after
+/*
+fn build_user(email: String, username: String) -> User {
+    User {
+        username,
+        email,
+        active: true,
+        sign_in_count: 1,
+    }
+}
+// pretty nice but the names do have to be the same
+*/
+
+
+//
+//  Creating Instances with Struct update syntax
+//
+
+// we can make a new instance but with the same data from another instance
+// this is called struct update syntax
+/*
+fn main() {
+    let user1 = User {
+        username: String::from("Kaasman"),
+        email: String::from("Kaasman@og.com"),
+        active: true,
+        sign_in_count: 1,
+    };
+
+// we now give user3 the same values as user1 except email
+/*
+    let user3 = User {
+        email: String::from("Kaasman@clone.com"),
+        username: user1.username,
+        active: user1.active,
+        sign_in_count: user1.sign_in_count,
+    };
+*/
+// we can write this way shorter tho with the follwing syntax
+    
+    let user4 = User {
+        email: String::from("Kaasman@droid.com"),
+        ..user1 // must come last to symbolise the remaining fields
+    };
+// Note :
+// doing this does move the data so we can not call the roginal 
+// user1 field data anymore
+// println!("{}", user1.username); // Not possible
+// println!("{}", user1.email); // this is possible
+// cuz we did not move the email data
+}
+*/
+
+
+//
+//  Tuple Structs
+//
+
+struct color(i32, i32, i32);
+struct point(i32, i32, i32);
+
+fn main() {
+    let black = color(0, 0, 0);
+    let origin = point(0, 0, 0);
+
+    // to be abkle to get a value from the tuple struct we need to
+    // destructre it    vvv
+    let point(x, y, z) = origin;
+    // now we can call x and we get the corespoding number
+    println!("{}", x);
+
+}
+
+// 
+//  Defining unit-Like Structs
+//
+
