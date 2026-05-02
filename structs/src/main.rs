@@ -184,7 +184,7 @@ fn main() {
 //
 //  Tuple Structs
 //
-
+/*
 struct color(i32, i32, i32);
 struct point(i32, i32, i32);
 
@@ -199,8 +199,36 @@ fn main() {
     println!("{}", x);
 
 }
-
+*/
 // 
 //  Defining unit-Like Structs
 //
 
+// we can define structs that dont have any fields like so
+struct empty;
+// this goes hand in hand with traits wich will be disscussed in chapter 10
+fn main() {
+    let this = empty;
+}
+
+
+//
+//  Owenership of struct data
+//
+
+/* ong this gonna be alot of text
+in the User struct we use String and not &str
+cuz we want every instnance of that struct to own its data 
+                            |   
+struct User {               |
+    username: String,   <----
+    email: String,
+    sign_in_count: u32,
+    active: bool,
+}
+
+
+its also possible for structs to store refrences to data,
+but this requires lifetimes and we have not yet disscussed that 
+it will also happen in chatper 10.
+*/
