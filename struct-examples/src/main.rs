@@ -84,7 +84,7 @@ we can see exactly where / what happens
 //
 //  Adding functionality with derived traits
 //
-
+/*
 #[derive(Debug)]
 struct rectangle {
     width: u32,
@@ -136,6 +136,10 @@ fn main() {
     
     */
 
+}
+*/
+
+    
     // now comes the actual crazy part
     // there is another wayyyy to print using the debug fromat
 
@@ -146,6 +150,23 @@ fn main() {
     // println!() does not take ownership but a refrence
     // dbg also prints the file name and line number wher the code is written
     // this is how you write it
-    dbg!(&rect1);
 
+
+#[derive(Debug)]
+struct Rectangle {
+    width: u32,
+    height: u32,
+}
+
+fn main() {
+    let scale = 2;
+    let rect1 = Rectangle {
+        width: dbg!(7 * scale), // this fucking prints the rsult aswell, what in the actual fuck thats crazy sick
+        // since the dbg reutns owensership of the value, the field
+        // width gets the same value asnif we did not use dbg!
+        height: 10,
+    };
+    // dbg!(rect1);
+    // now dbg! takes owner ship we dont want that so we can do this
+    dbg!(&rect1);
 }
