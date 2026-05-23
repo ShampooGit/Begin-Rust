@@ -111,7 +111,7 @@ fn main() {
 //
 //  alot can be in a enum
 //
-
+/*
 fn main() {
 
     struct Ipv4Addr {
@@ -130,4 +130,29 @@ fn main() {
     gonna be honest dont even know how to to but damnn
     its gonna be fire when i do.
     */
+}
+*/
+
+//
+//  omg and there is moreee
+//
+
+fn main() {
+    enum Message {
+        Quit,
+        Move {x: i32, y: i32},  //fields so... key : value
+        Write(String),
+        ChnageColor(i32, i32, i32),
+    }
+    // so this enum is basicaly holding 4 struct and if we wrote it like struct 
+    // it would look like this
+    struct QuitMessage;     // unit struct aka empty struct
+    struct MoveMessage {
+        x: i32,
+        y: i32,
+    };
+    struct WriteMessage(String);    // tuple struct
+    struct ChangeColorMessage(i32, i32, i32);   // tuple struct
+    // is that not crazy with the enum we dont only make all theese but we group
+    // them together inside Message that is nutty
 }
