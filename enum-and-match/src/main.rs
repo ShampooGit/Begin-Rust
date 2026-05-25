@@ -136,8 +136,9 @@ fn main() {
 //
 //  omg and there is moreee
 //
-
+/*
 fn main() {
+    #[derive(Debug)]
     enum Message {
         Quit,
         Move {x: i32, y: i32},  //fields so... key : value
@@ -155,4 +156,51 @@ fn main() {
     struct ChangeColorMessage(i32, i32, i32);   // tuple struct
     // is that not crazy with the enum we dont only make all theese but we group
     // them together inside Message that is nutty
+
+
+    // methods on enums
+    impl Message {
+        fn call(&self){
+            println!("{:?}", self)
+            // Write(Hello)
+        }
+    }
+
+    let m = Message::Write(String::from("Hello"));
+    m.call();
+    println!("{:?}", m)
+    // Write(Hello)
+
+}
+*/
+
+//
+//  The Option Enum
+//
+
+// the option enum is in the std
+// and it is used for if the data is either something or nothing
+// there for the name option
+
+// the reason fo this is, the code will not compile if not all possible options
+// have been acounted for so we dont get any runtime errors
+
+// option can be used to represent a form of null so there value is present or absent
+// https://doc.rust-lang.org/std/option/enum.Option.html
+
+fn main() {
+    enum OptionEx<T> {
+        // T is the place holder var
+        // can be anything 
+        None,
+        Some(T),
+    }
+    // cuz option is used so often it gets privalges
+    //  - you dont have to use any prefix Option::
+    //  - you dont have to bring option into scope
+    //  - the varaints of option get brought into scope aswell
+
+    // <T> deep dive
+    // its a generic type parameter (no clue what that means lol)
+    // 
 }
