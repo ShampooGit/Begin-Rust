@@ -202,5 +202,40 @@ fn main() {
 
     // <T> deep dive
     // its a generic type parameter (no clue what that means lol)
-    // 
+    // but i cna use it as a placeholder for mutiple data types
+    // also the book goes into more detail at chapter 10
+    //
+    // exmaples
+
+    let somen_umber = Some(5); // the type is Option<i32>
+    let some_char = Some('H'); // the type is Option<char>
+
+    let absent_number: Option<i32> = None;
+
+// when we have a Some value we know there will be a value
+// and that value will be held in Some, and none is close to NULL
+// so why is None better?
+// okay complex but look at the next example
+    let x: i8 = 8;
+    let y: Option<i8> = Some(5);
+
+    let sum = x + y;
+// okay so why is this not possible what is happening here
+// cuz the they are bith numbers why can we not add them togheter
+// well the problem is with Option<i8> and what it is,
+// becaus eOption can be either a value or no value this means,
+// in some circumstance we could have no value and it would be this 
+// 8 +  =  
+// we would be missing a value and thus Option is not allowd
+// so since they are 2 diffrent types we need to acount for the possible
+// None value 
+// 
+// so how do we extract to the basic data type in this case i8
+// https://doc.rust-lang.org/std/option/enum.Option.html
+// the solution to the problem we are facing is:
+//
+//
+//  match statements
+//
+//
 }
