@@ -1,14 +1,16 @@
 
 // main
 fn main() {
+    // task 6
+    let temp = 25;
+    let humidity = 20; 
+
+    plant_status(temp, humidity);
+
     // task 5
-    let mut number = Some(42);
-    if let Some(val) = number {
-        println!("{val}");
-        number = None
-    } else {
-        println!("oops");
-    }
+    let number = Some(42);
+    response(number);
+
     // task 4
     reply(HttpReply::Success);
     reply(HttpReply::NotFound);
@@ -103,3 +105,38 @@ Task: Create a variable holding Some(42).
 Use an if let statement to extract the number and print it. 
 Then change that variable to None to make sure your code handles it without crashing.
 */
+fn response(mut n: Option<i32>) {
+    if let Some(val) = n {
+        println!("{val}");
+        n = None
+    } else {
+        println!("oops");
+    }
+}
+
+/*
+Exercise 6: Pure rust oractice
+Task: Write a small CLI program that takes a "temperature" and "humidity" as hardcoded variables 
+and uses an enum like FaceState { Happy, Sleepy, Thirsty }, 
+then a match statement that picks a state based on the values.
+*/
+
+fn plant_status(t: i32, h: i32) {
+    enum Facestate{
+        Happy,
+        Thirsty,
+        Sleepy
+    }
+
+    let face = match (t, h) {
+        (t, h) if t >= 25 && h <= 50 => Facestate::Thirsty,
+        (t, h)if t <= 24 && h >= 51 => Facestate::Happy,
+        _ => Facestate::Sleepy
+    };
+
+    match face {
+        Facestate::Happy => println!("Yay all good <3"),
+        Facestate::Thirsty => println!("plss give me some water"),
+        Facestate::Sleepy => println!("oops ima sleep"),
+    }
+}
